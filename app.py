@@ -150,7 +150,7 @@ def oauth2callback():
 
 @app.route('/privacy-policy')
 def privacy_policy():
-    return render_template('privacy_policy.html')
+    return render_template('private_policy.html')
 
 
 if __name__ == '__main__':
