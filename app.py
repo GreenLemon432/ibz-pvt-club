@@ -117,7 +117,8 @@ def oauth2callback():
         client_config,
         scopes=SCOPES
     )
-    flow.redirect_uri = url_for('oauth2callback', _external=True)
+    # Use your deployed URL here directly, to avoid mismatch
+    flow.redirect_uri = 'https://ibz-pvt-club.onrender.com/oauth2callback'
 
     authorization_response = request.url
     flow.fetch_token(authorization_response=authorization_response)
