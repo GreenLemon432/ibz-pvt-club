@@ -152,6 +152,10 @@ def oauth2callback():
 def privacy_policy():
     return render_template('private_policy.html')
 
+@app.route('/terms')
+def terms_and_services():
+    return render_template('terms.html')
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
