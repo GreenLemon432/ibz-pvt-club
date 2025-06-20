@@ -92,7 +92,6 @@ def index():
     # GET request - just show form, no message
     return render_template('index.html', message=message)
 
-
 @app.route('/authorize')
 def authorize():
     client_config = json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"])
@@ -100,7 +99,8 @@ def authorize():
         client_config,
         scopes=SCOPES
     )
-    flow.redirect_uri = url_for('oauth2callback', _external=True)
+    # Use your deployed URL here directly, to avoid mismatch
+    flow.redirect_uri = 'https://ibz-pvt-club.onrender.com/oauth2callback'
 
     authorization_url, state = flow.authorization_url(
         access_type='offline',
@@ -108,7 +108,6 @@ def authorize():
 
     session['state'] = state
     return redirect(authorization_url)
-
 
 @app.route('/oauth2callback')
 def oauth2callback():
