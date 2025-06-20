@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, url_for
+import json
 import os
 import base64
 from email.mime.text import MIMEText
@@ -19,8 +20,6 @@ os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Change to a secure secret key!
-
-CLIENT_SECRETS_FILE = "credentials.json"  # Your downloaded OAuth2 client JSON
 
 SCOPES = [
     'https://www.googleapis.com/auth/gmail.send',
@@ -96,9 +95,11 @@ def index():
 
 @app.route('/authorize')
 def authorize():
-    print("Authorize Call\n")
-    flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
-        CLIENT_SECRETS_FILE, scopes=SCOPES)
+    client_config = json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"])
+    flow = google_auth_oauthlib.flow.Flow.from_client_config(
+        client_config,
+        scopes=SCOPES
+    )
     flow.redirect_uri = url_for('oauth2callback', _external=True)
 
     authorization_url, state = flow.authorization_url(
@@ -111,11 +112,12 @@ def authorize():
 
 @app.route('/oauth2callback')
 def oauth2callback():
-    print("Callback call\n")
     state = session.get('state')
-
-    flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
-        CLIENT_SECRETS_FILE, scopes=SCOPES, state=state)
+    client_config = json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"])
+    flow = google_auth_oauthlib.flow.Flow.from_client_config(
+        client_config,
+        scopes=SCOPES
+    )
     flow.redirect_uri = url_for('oauth2callback', _external=True)
 
     authorization_response = request.url
