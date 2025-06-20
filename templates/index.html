@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ibz Weed</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        color: white;
+        background: white;
+      }
+
+      .top-section {
+        background-image: url("/static/ibz_photo.jpg");
+        background-size: cover;
+        background-position: center;
+        padding: 60px 20px 80px 20px;
+        min-height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .form-container {
+        width: 100%;
+        max-width: 600px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 30px 25px;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        text-align: center;
+        color: #81c784;
+        margin-bottom: 20px;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      label {
+        font-weight: bold;
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+      }
+
+      input,
+      select {
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        background: rgba(0, 0, 0, 0.4);
+        color: white;
+      }
+
+      input::placeholder {
+        color: #ccc;
+      }
+
+      input[type="submit"] {
+        background-color: #81c784;
+        color: #111;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        border-radius: 6px;
+        border: none;
+        padding: 12px;
+        margin-top: 10px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #66bb6a;
+      }
+
+      .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+      }
+
+      input:focus,
+      select:focus {
+        outline: 2px solid #81c784;
+        outline-offset: 2px;
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .bottom-section {
+        background: white;
+        color: #222;
+        padding: 40px 30px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        font-weight: 400;
+        max-width: none;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .bottom-section h2 {
+        margin-top: 0;
+        color: #388e3c;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .story-section {
+        background-color: #e9d8b7;
+        color: #2c2c2c;
+        padding: 40px 30px;
+        line-height: 1.6;
+      }
+
+      .story-section h2,
+      .story-section h3 {
+        color: #4e342e;
+        margin-top: 0;
+      }
+
+      .story-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+      }
+
+      .story-section h3 {
+        font-size: 1.4rem;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+
+      .hours-section {
+        background-color: white;
+        color: #222;
+        padding: 40px 30px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .hours-section h2 {
+        color: #388e3c;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .hours-section ul {
+        list-style: none;
+        padding: 0;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .hours-section li {
+        padding: 8px 0;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .map-section {
+        width: 100%;
+        height: 400px;
+        background: #eee;
+      }
+
+      .map-section iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="top-section">
+      <div class="form-container">
+        <h1>Ibiza Weed Club</h1>
+        <form method="POST" action="/">
+          <label for="first_name">Your Name *</label>
+          <input type="text" id="first_name" name="first_name" required />
+
+          <label for="last_name">Your Last Name</label>
+          <input type="text" id="last_name" name="last_name" />
+
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" />
+
+          <label for="birthday">Your Birthday *</label>
+          <input
+            type="text"
+            id="birthday"
+            name="birthday"
+            placeholder="dd/mm/yyyy"
+            required
+          />
+
+          <label for="phone">Your Phone Number</label>
+          <input type="tel" id="phone" name="phone" />
+
+          <label for="city">In which city do you live?</label>
+          <input type="text" id="city" name="city" />
+
+          <label for="country">In which country do you live?</label>
+          <input type="text" id="country" name="country" />
+
+          <label for="arrival">When are you planning to come?</label>
+          <select id="arrival" name="arrival">
+            <option value="">Select a month</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+          </select>
+
+          <label for="user_type">What type of user are you?</label>
+          <select id="user_type" name="user_type">
+            <option value="Recreational">Recreational</option>
+            <option value="Medical">Medical</option>
+            <option value="Both">Both</option>
+          </select>
+
+          <div class="checkbox-label">
+            <input type="checkbox" id="agree" name="agree" required />
+            <label for="agree">I agree to the terms and conditions.</label>
+          </div>
+
+          <input type="submit" value="Join Now" />
+        </form>
+
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+      </div>
+    </section>
+
+    <section class="bottom-section">
+      <h2>HOME OF CANNABIS CLUB GREATNESS</h2>
+      <p>
+        Grandparents, parents, collegegoers, athletes, businessmen and everyday
+        joe’s alike should all freely enjoy the commonly accepted natural
+        remedies to affect greater health, vitality and comfort. In today’s
+        world, we feel that cannabis has to come out of the closet, off the
+        streets, beyond just the parties and into the light of day where it can
+        be used safely, responsibly, and ethically.
+      </p>
+      <p>
+        Education and respect are our most important values in the industry.
+        When you learn the truth about cannabis and its various beneficial
+        properties, you are much better equipped to choose which strain or
+        variety is best for your needs or wants, and that will help our members
+        find what they seek. We look forward to being part of and helping to add
+        to the diverse, inclusive community of Ibiza.
+      </p>
+      <p>
+        At Ibiza weed club, we believe that our members have to have a safe
+        space that is also enjoyable where they can come chill, focus, mingle,
+        or just enjoy.
+      </p>
+    </section>
+
+    <section class="story-section">
+      <h2>Our Story: Elevating Cannabis Culture in Ibiza</h2>
+      <p>
+        Ibiza Weed Club stands as the pinnacle of cannabis culture in Ibiza,
+        blending exclusivity with a welcoming social environment. Founded with a
+        passion for cannabis and a commitment to creating a tight-knit
+        community, our club offers a haven for like-minded individuals seeking a
+        sophisticated and social approach to cannabis enjoyment.
+      </p>
+      <h3>Our Commitment: Discretion, Quality, and Community</h3>
+      <p>
+        Discretion is the cornerstone of Ibiza Weed Club. Our commitment to
+        quality extends from our carefully curated selection of strains to the
+        exceptional events we host. As a Social Club in Ibiza, we strive to
+        foster a community where responsible cannabis use is celebrated,
+        ensuring an experience like no other.
+      </p>
+    </section>
+
+    <section class="hours-section">
+      <h2>Opening Hours</h2>
+      <p style="text-align: center; font-size: 1.2rem">
+        Monday to Sunday — 11:00 AM to 11:00 PM
+      </p>
+    </section>
+
+    <section class="map-section">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194.04374591182167!2d1.4251236842334762!3d38.90797665113958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x129946bd72877be1%3A0x9bca944995a99328!2sC%2F%20d'Arag%C3%B3%2C%2070%2C%2007800%20Eivissa%2C%20Illes%20Balears!5e0!3m2!1ses!2ses!4v1750346817956!5m2!1ses!2ses"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </section>
+  </body>
+</html>
