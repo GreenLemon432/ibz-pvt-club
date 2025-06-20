@@ -53,7 +53,7 @@ def index():
 
 @app.route('/privacy-policy')
 def privacy_policy():
-    return render_template('privacy_policy.html')
+    return render_template('private_policy.html')
 
 @app.route('/terms')
 def terms_and_services():
